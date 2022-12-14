@@ -1,0 +1,596 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{83DFD418-FA5F-4EB8-A8C4-86858F8E83A4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RiboBio8</RootNamespace>
+    <AssemblyName>RiboBio8</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>true</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <SupportUrl>http://www.ribobio.com</SupportUrl>
+    <ProductName>RiboBio8 DNA-RNA Synthesizer</ProductName>
+    <PublisherName>J Adams</PublisherName>
+    <SuiteName>RiboBio-8 Synhesizer Control Software</SuiteName>
+    <MinimumRequiredVersion>1.1.122.7</MinimumRequiredVersion>
+    <ApplicationRevision>9</ApplicationRevision>
+    <ApplicationVersion>2.1.122.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>O - Ribo.bmp.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>1DEC7671AD271742BF7BB5CA647C96CD8CE6DF0E</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>RiboBio8_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Log" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Controls.Ribbon" />
+    <Reference Include="System.Windows.Presentation" />
+    <Reference Include="System.Workflow.ComponentModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZedGraph, Version=5.0.9.41461, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\ZedGraph.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationRunningHelper.cs" />
+    <Compile Include="barchartcontrol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="barchartcontrol.designer.cs">
+      <DependentUpon>barchartcontrol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseTable.Designer.cs">
+      <DependentUpon>BaseTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CellsOnOffcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CellsOnOffcs.designer.cs">
+      <DependentUpon>CellsOnOffcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config_Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Config_Editor.designer.cs">
+      <DependentUpon>Config_Editor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsumptionCalc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsumptionCalc.Designer.cs">
+      <DependentUpon>ConsumptionCalc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RunHover.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TerminateBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TerminateBox.Designer.cs">
+      <DependentUpon>TerminateBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="globals.cs" />
+    <Compile Include="initicontrollers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Load_Protocols.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Load_Protocols.Designer.cs">
+      <DependentUpon>Load_Protocols.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Man_Controlcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Man_Controlcs.Designer.cs">
+      <DependentUpon>Man_Controlcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Method_Lists.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Misc_Functions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="Notes_Release.cs" />
+    <Compile Include="passchange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="passchange.designer.cs">
+      <DependentUpon>passchange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pause_Time.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pause_Time.Designer.cs">
+      <DependentUpon>Pause_Time.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Protocol_Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Protocol_Editor.Designer.cs">
+      <DependentUpon>Protocol_Editor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Protocol_Selector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Protocol_Selector.Designer.cs">
+      <DependentUpon>Protocol_Selector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PS_UserManagemet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PS_UserManagemet.designer.cs">
+      <DependentUpon>PS_UserManagemet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PushToCol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PushToCol.Designer.cs">
+      <DependentUpon>PushToCol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reagent_Parameters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reagent_Parameters.Designer.cs">
+      <DependentUpon>Reagent_Parameters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RelNotesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RelNotesView.Designer.cs">
+      <DependentUpon>RelNotesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RunCommands.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RunDoCommands.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RiboBioAboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RiboBioAboutBox.Designer.cs">
+      <DependentUpon>RiboBioAboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AmiditeConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AmiditeConfig.Designer.cs">
+      <DependentUpon>AmiditeConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="am_btl_config.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="am_btl_config.Designer.cs">
+      <DependentUpon>am_btl_config.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pressuriz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pressuriz.Designer.cs">
+      <DependentUpon>Pressuriz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RiboBioRun.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RiboBioRun.Designer.cs">
+      <DependentUpon>RiboBioRun.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sequence_Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sequence_Editor.Designer.cs">
+      <DependentUpon>Sequence_Editor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="Splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Splash.designer.cs">
+      <DependentUpon>Splash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="stripchartcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="stripchartcs.designer.cs">
+      <DependentUpon>stripchartcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSleepManagement.cs" />
+    <Compile Include="Text_Param.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Text_Param.Designer.cs">
+      <DependentUpon>Text_Param.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserLoginForm.designer.cs">
+      <DependentUpon>UserLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserMgmt.cs" />
+    <Compile Include="valves.cs" />
+    <Compile Include="Wait_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wait_Form.Designer.cs">
+      <DependentUpon>Wait_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowAlreadyOpen.cs" />
+    <EmbeddedResource Include="barchartcontrol.resx">
+      <DependentUpon>barchartcontrol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseTable.resx">
+      <DependentUpon>BaseTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CellsOnOffcs.resx">
+      <DependentUpon>CellsOnOffcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config_Editor.resx">
+      <DependentUpon>Config_Editor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Load_Protocols.resx">
+      <DependentUpon>Load_Protocols.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Man_Controlcs.resx">
+      <DependentUpon>Man_Controlcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="passchange.resx">
+      <DependentUpon>passchange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pause_Time.resx">
+      <DependentUpon>Pause_Time.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Protocol_Editor.resx">
+      <DependentUpon>Protocol_Editor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Protocol_Selector.resx">
+      <DependentUpon>Protocol_Selector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PS_UserManagemet.resx">
+      <DependentUpon>PS_UserManagemet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PushToCol.resx">
+      <DependentUpon>PushToCol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reagent_Parameters.resx">
+      <DependentUpon>Reagent_Parameters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsumptionCalc.resx">
+      <DependentUpon>ConsumptionCalc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RelNotesView.resx">
+      <DependentUpon>RelNotesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RiboBioAboutBox.resx">
+      <DependentUpon>RiboBioAboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AmiditeConfig.resx">
+      <DependentUpon>AmiditeConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="am_btl_config.resx">
+      <DependentUpon>am_btl_config.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pressuriz.resx">
+      <DependentUpon>Pressuriz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RiboBioRun.resx">
+      <DependentUpon>RiboBioRun.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sequence_Editor.resx">
+      <DependentUpon>Sequence_Editor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Splash.resx">
+      <DependentUpon>Splash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="stripchartcs.resx">
+      <DependentUpon>stripchartcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TerminateBox.resx">
+      <DependentUpon>TerminateBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Text_Param.resx">
+      <DependentUpon>Text_Param.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserLoginForm.resx">
+      <DependentUpon>UserLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wait_Form.resx">
+      <DependentUpon>Wait_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="RiboBio8_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="graphics\TN_blowing_a_balloon_air.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="graphics\Ballon 90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="graphics\DNA btls.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="graphics\recipie book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="graphics\process.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="graphics\RunningMan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="graphics\DNA Sequence.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="graphics\amidite_btl_bar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="graphics\Bar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="graphics\amidite_btl.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="graphics\amidite_btl_cr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SeNA lofo.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SeNa Logo.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SeNA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="graphics\Horiz_Line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="graphics\Vert_Line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="graphics\4L Boston Round.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="graphics\1L Boston Round.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="graphics\394_Column.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="graphics\3-way valve br.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="graphics\3-way valve up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="graphics\Pump.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="graphics\3-way valve dn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="graphics\Horiz_Line_Grn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="graphics\Vert_Line_Green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Move_Right.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Move_Right_21.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Move_Right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\up.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\X.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="graphics\Multi_Column.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RiboBio Logo small.png" />
+    <None Include="Resources\DNA Synthesis.jpg" />
+    <None Include="Resources\running_man-512.png" />
+    <None Include="Resources\pause guy.jpg" />
+    <None Include="Resources\terminate.png" />
+    <None Include="Resources\select files.png" />
+    <None Include="Resources\exit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="O - Ribo.bmp.ico" />
+    <None Include="Resources\emptyfull.png" />
+    <None Include="Resources\Warning-sign.png" />
+    <None Include="Resources\newline.gif" />
+    <None Include="Resources\RB8Loading.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <FileAssociation Include=".apr">
+      <Visible>False</Visible>
+      <Description>RiboBio Amidite Protocol</Description>
+      <Progid>5boHVLLNWf3fQC9Myw1Z</Progid>
+      <DefaultIcon>O - Ribo.bmp.ico</DefaultIcon>
+    </FileAssociation>
+    <FileAssociation Include=".cap">
+      <Visible>False</Visible>
+      <Description>RiboBio Capping Protocol</Description>
+      <Progid>2lQafp9IQc0MD1xj6Dru</Progid>
+      <DefaultIcon>O - Ribo.bmp.ico</DefaultIcon>
+    </FileAssociation>
+    <FileAssociation Include=".dbl">
+      <Visible>False</Visible>
+      <Description>RiboBio Deblocking Protocol</Description>
+      <Progid>bcoSpXdUcKUqvAcJIxLE</Progid>
+      <DefaultIcon>O - Ribo.bmp.ico</DefaultIcon>
+    </FileAssociation>
+    <FileAssociation Include=".oxi">
+      <Visible>False</Visible>
+      <Description>RiboBio Oxidizer Protocol</Description>
+      <Progid>s3RjXJesxMvy0NKx1hbd</Progid>
+      <DefaultIcon>O - Ribo.bmp.ico</DefaultIcon>
+    </FileAssociation>
+    <FileAssociation Include=".prp">
+      <Visible>False</Visible>
+      <Description>RiboBio Prep Protocol File</Description>
+      <Progid>WwYwZrbpBTp8lqMWbDfp</Progid>
+      <DefaultIcon>O - Ribo.bmp.ico</DefaultIcon>
+    </FileAssociation>
+    <FileAssociation Include=".psy">
+      <Visible>False</Visible>
+      <Description>RiboBio Post Run Protocol</Description>
+      <Progid>vTXoYxS48GNaehnOIRIT</Progid>
+      <DefaultIcon>O - Ribo.bmp.ico</DefaultIcon>
+    </FileAssociation>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
